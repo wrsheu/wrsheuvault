@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+            steps {
+ 				sh 'echo "Hello World"'
+ 				sh 'git checkout '
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'git --version'
+            }
+        }
+    }
+}
